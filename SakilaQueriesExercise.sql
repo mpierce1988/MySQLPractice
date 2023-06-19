@@ -53,3 +53,10 @@ SELECT film.rental_duration INTO @rental_duration FROM film WHERE film.film_id =
 SELECT DATE_ADD(rental.rental_date, INTERVAL @rental_duration DAY) AS due_date FROM rental WHERE rental.staff_id = @staff_id AND rental.customer_id = @customer_id AND rental.inventory_id = @inventory_id;
 
 # What is the average running time of all film in sakila db?
+SELECT AVG(film.`length`) AS avg_running_time FROM film;
+
+# What is the average running time of all films by category?
+SELECT category.`name`, AVG(film.`length`) as avg_running_time FROM film 
+JOIN film_category ON film.film_id = film_category.film_id 
+JOIN category ON film_category.category_id = category.category_id
+GROUP BY film_category.category_id, category.`name`;
