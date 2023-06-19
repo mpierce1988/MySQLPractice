@@ -1,3 +1,6 @@
+### MySQL Sakila Queries Practice
+### https://datamastery.gitlab.io/exercises/sakila-queries.html
+
 USE sakila;
 
 # Select Actor with first name Scarlett
